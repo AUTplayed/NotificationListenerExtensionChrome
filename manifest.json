@@ -11,10 +11,17 @@
 			"128": "images/get_started128.png"
 		}
 	},
+	"options_ui": {
+		"page": "options.html",
+		"open_in_tab": true
+	},
 	"background": {
-		"scripts": [ "background.js" ]
+		"scripts": [
+			"background.js"
+		]
 	},
 	"permissions": [
-		"http://*/"
+		"http://*/",
+		"storage"
 	]
 }
