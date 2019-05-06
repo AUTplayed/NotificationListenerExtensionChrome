@@ -30,12 +30,20 @@ async function clearNotif(ev) {
 
 function buildEntry(data) {
 	var dateFormatted = new Date(data.time).toTimeString().split(" ")[0];
-	calcMaxWidth(data.title);
+
 	calcMaxWidth(data.content);
+	var newlines = data.content.split("\n");
+	newlines = newlines.filter((e)=>e != "");
+	if((newlines || []).length > 3) {
+		data.content = `<details><summary>${newlines.slice(0, 3).join("\n")}</summary>${newlines.slice(3).join("\n")}</details>`;
+	}
+
+	calcMaxWidth(data.title);
+	
 	calcMaxWidth(data.source + " " + dateFormatted);
 	return `<div style="display:flex;flex-direction:column">
 			<div style="display:flex;justify-content:space-between;"><span>${data.title}</span><span style="cursor:pointer;" class="clear" key="${data.key}">✖</span></div>
-			<div>${data.content}</div>
+			<div style="white-space: pre-line;">${data.content}</div>
 			<div style="display:flex;justify-content:space-between;"><span>${data.source}</span><span>${dateFormatted}</span></div>
 		</div>`;
 }
