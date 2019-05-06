@@ -13,7 +13,7 @@ async function open() {
 	content.innerHTML = html;
 	var clears = document.getElementsByClassName("clear");
 	for (var i = 0; i < clears.length; i++) {
-		clears[0].onclick = clearNotif;
+		clears[i].onclick = clearNotif;
 	}
 }
 open();
