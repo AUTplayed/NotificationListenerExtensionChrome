@@ -38,7 +38,7 @@ function buildEntry(data) {
 		data.content = `<details><summary>${newlines.slice(0, 3).join("\n")}</summary>${newlines.slice(3).join("\n")}</details>`;
 	}
 
-	calcMaxWidth(data.title);
+	calcMaxWidth(data.title + "xxx");
 	
 	calcMaxWidth(data.source + " " + dateFormatted);
 	return `<div style="display:flex;flex-direction:column">
